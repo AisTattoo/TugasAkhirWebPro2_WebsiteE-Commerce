@@ -1,19 +1,21 @@
 import React from "react";
-import './Item.css'
+import './Item.css';
 
 const Item = (props) => {
-    <div className="item">
-        <img src={props.image} alt=""/>
-        <p>{props.name}</p>
-        <div className="item-prices">
-            <div className="item-prices-new">
-                {props.new_price}
-            </div>
-            <div className="item-prices-old">
-                {props.old_price}
+    return (
+        <div className="item">
+            <img src={props.image} alt={props.name} />
+            <p>{props.name}</p>
+            <div className="item-prices">
+                <div className="item-prices-new">
+                    ${props.new_price}
+                </div>
+                <div className="item-prices-old">
+                    ${props.old_price}
+                </div>
             </div>
         </div>
-    </div>
+    );
 }
 
-export default Item
+export default Item;
