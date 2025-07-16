@@ -15,7 +15,7 @@
 .productdisplay-img-list {
     display: flex;
     flex-direction: column;
-    gap: 17px;
+    gap: 13px;
 }
 
 .productdisplay-img-list img {
