@@ -25,7 +25,7 @@
 }
 .cartitems-remove-icon{
     width: 15px;
-    margin: 0 40px;
+    margin: 0px 40px;
     cursor: pointer;
 }
 .cartitems-quantity{
@@ -33,4 +33,101 @@
     height: 50px;
     border: 2px solid #ebebeb;
     background: white;
+}
+.cartitems-down {
+  display: flex;
+  margin: 100px 0px;
+  gap: 100px;
+}
+
+.cartitems-total{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-right: 200px;
+    gap: 30px;
+}
+
+.cartitems-total h1{
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cartitems-total-item{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+    border-bottom: 1px solid #e2e2e2;
+    font-size: 16px;
+}
+
+.cartitems-total-item:last-child{
+    border-bottom: 2px solid #333;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.cartitems-total button{
+    width: 100%;
+    height: 58px;
+    outline: none;
+    border: none;
+    background: #ff5a5a;
+    color: #ffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 30px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.cartitems-total button:hover{
+    background: #e54545;
+}
+
+.cartitems-promocode {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 500;
+    flex-direction: column;
+    
+}
+
+.cartitems-promocode p{
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.cartitems-promobox{
+    width: 504px;
+    margin-top: 15px;
+    padding-left: 20px;
+    height: 58px;
+    background: #eaeaea;
+}
+
+.cartitems-promobox input{
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    width: 330px;
+    height: 50px;
+}
+
+.cartitems-promobox button{
+   width: 170px;
+   height: 58px;
+   font-size: 16px;
+   background: black;
+   color: white;
+   cursor: pointer;
+}
+
+.cartitems-promocode button:hover{
+    background: #555;
 }
