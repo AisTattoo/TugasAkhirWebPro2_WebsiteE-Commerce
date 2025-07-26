@@ -4,6 +4,9 @@
   padding: 16px;
   box-shadow: 0 1px 3px -2px black;
   align-items: center;
+  position: relative;
+  z-index: 1000;
+  background-color: #b9bdff; /* Background warna yang diminta */
 }
 
 .nav-logo {
@@ -17,12 +20,12 @@
   font-size: 38px;
   font-weight: 600;
 }
+
 .nav-menu {
   display: flex;
   align-items: center;
   list-style: none;
   gap: 50px;
-  color: #626262;
   font-size: 20px;
   font-weight: 500;
 }
@@ -34,20 +37,39 @@
   justify-content: center;
   gap: 3px;
   cursor: pointer;
+  color: #626262;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
 }
 
+/* Tambahkan efek hover */
+.nav-menu li:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: #333;
+}
+
+/* Item aktif, misalnya saat di halaman tersebut */
+.nav-menu li.active {
+  background-color: black;
+  color: white;
+}
+
+/* Garis kecil di bawah menu */
 .nav-menu hr {
   border: none;
   width: 80%;
   height: 3px;
   border-radius: 10px;
-  background: #ff4141;
+  background: #a1a1a1;
 }
 
 .nav-login-cart {
   display: flex;
   align-items: center;
   gap: 45px;
+  position: relative;
+  z-index: 10;
 }
 
 .nav-login-cart button {
@@ -61,10 +83,17 @@
   font-weight: 500;
   background: white;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
+.nav-login-cart button:hover {
+  background: #f0f0f0;
+}
+
+/* Hindari klik warna oranye saat tombol ditekan */
 .nav-login-cart button:active {
-  background: #e6e6e6;
+  background: #dcdcdc;
+  color: #000;
 }
 
 .nav-cart-count {
@@ -80,10 +109,12 @@
   background: red;
   color: white;
 }
-.nav-dropdown{
-  display: none; 
+
+.nav-dropdown {
+  display: none;
 }
-/* HP ukuran kecil-sedang */
+
+/* Responsive Breakpoints */
 @media (max-width: 1280px) {
   .navbar {
     padding: 12px 50px;
@@ -106,7 +137,7 @@
     height: 45px;
     font-size: 16px;
   }
-  .nav-cart-count{
+  .nav-cart-count {
     margin-left: -40px;
     font-size: 12px;
   }
@@ -120,58 +151,59 @@
     gap: 25px;
     font-size: 14px;
   }
-  .nav-login-cart img{
-	  width: 30px;
+  .nav-login-cart img {
+    width: 30px;
   }
   .nav-login-cart button {
     width: 80px;
     height: 35px;
     font-size: 14px;
   }
-  .nav-cart-count{
-    width:18px;
-    height:18px;
+  .nav-cart-count {
+    width: 18px;
+    height: 18px;
   }
 }
-@media(max-width:800px){
-  .navbar{
+
+@media (max-width: 800px) {
+  .navbar {
     padding: 10px 0px;
   }
-  .nav-dropdown{
+  .nav-dropdown {
     display: block;
     width: 30px;
     rotate: -90deg;
     transition: 0.5s;
   }
-  .nav-menu{
+  .nav-menu {
     display: none;
     height: 80px;
     width: 100%;
     position: absolute;
-    background-color: white;
+    background-color: #b9bdff; /* Background dropdown sama dengan navbar */
     justify-content: center;
     top: 50px;
   }
-  .nav-menu-visible{
+  .nav-menu-visible {
     display: flex;
   }
-  .nav-dropdown.open{
+  .nav-dropdown.open {
     transform: rotate(90deg);
   }
 }
-@media(max-width:500px){
-  .navbar{
-    width: 8px 0px;
-    font-palette: 0;
+
+@media (max-width: 500px) {
+  .navbar {
+    padding: 8px 0px; /* Diperbaiki dari "width: 8px 0px" */
   }
-  .nav-logo{
+  .nav-logo {
     transform: scale(0.8);
   }
-  .nav-menu{
+  .nav-menu {
     height: 70px;
     top: 50px;
   }
-  .nav-login-cart{
+  .nav-login-cart {
     transform: scale(0.8);
   }
 }

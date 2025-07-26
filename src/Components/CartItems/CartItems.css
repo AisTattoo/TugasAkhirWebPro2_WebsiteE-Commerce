@@ -75,7 +75,7 @@
     height: 58px;
     outline: none;
     border: none;
-    background: #ff5a5a;
+    background: #45068b;
     color: #ffff;
     font-size: 16px;
     font-weight: 600;
@@ -86,7 +86,7 @@
 }
 
 .cartitems-total button:hover{
-    background: #e54545;
+    background: #45068b;
 }
 
 .cartitems-promocode {
@@ -100,6 +100,7 @@
 .cartitems-promocode p{
     color: #555;
     margin-bottom: 10px;
+    
 }
 
 .cartitems-promobox{
@@ -108,6 +109,7 @@
     padding-left: 20px;
     height: 58px;
     background: #eaeaea;
+    border-radius: 4px;
 }
 
 .cartitems-promobox input{
@@ -117,6 +119,7 @@
     font-size: 16px;
     width: 330px;
     height: 50px;
+    
 }
 
 .cartitems-promobox button{
@@ -126,6 +129,7 @@
    background: black;
    color: white;
    cursor: pointer;
+   border-radius: 4px;
 }
 
 .cartitems-promocode button:hover{

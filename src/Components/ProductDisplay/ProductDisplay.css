@@ -66,12 +66,12 @@
 }
 
 .productdisplay-right-price-old {
-    color: #818181;
+    color: #ac8ab2;
     text-decoration: line-through;
 }
 
 .productdisplay-right-price-new {
-    color: #ff4141;
+    color: #ff6868;
 }
 
 .productdisplay-right-description {
@@ -112,7 +112,7 @@
     font-size: 16px;
     font-weight: 600;
     color: white;
-    background: #ff4141;
+    background: #45068b;
     margin-bottom: 40px;
     border: none;
     outline: none;
