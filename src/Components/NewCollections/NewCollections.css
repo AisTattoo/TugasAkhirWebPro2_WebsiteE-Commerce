@@ -5,67 +5,138 @@
   gap: 10px;
   margin-bottom: 100px;
 }
+
 .new-collections h1 {
   color: #171717;
   font-size: 50px;
   font-weight: 600;
 }
+
 .new-collections hr {
   width: 200px;
   height: 6px;
   border-radius: 10px;
   background: #252525;
 }
+
 .collections {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   margin-top: 50px;
-  gap: 30px;
+  gap: 50px 30px;
+  justify-items: center;
+  align-items: start;
+  width: 80%;
+  max-width: 1200px;
 }
+
+.collections .item {
+  width: 100%;
+  max-width: 280px;
+  background: white;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #f0f0f0;
+  transition: all 0.2s ease;
+}
+
+.collections .item:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transform: translateY(-2px);
+}
+
+.collections .item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
 @media(max-width:1280px){
-  .new-collections h1{
+  .new-collections h1 {
     font-size: 40px;
   }
-  .new-collections hr{
+
+  .new-collections hr {
     width: 160px;
     height: 4px;
   }
-  .collections{
-    gap: 20px;
+
+  .collections {
+    gap: 40px 25px;
     margin-top: 30px;
+    width: 85%;
+  }
+
+  .collections .item {
+    max-width: 250px;
+    padding: 10px;
   }
 }
+
 @media(max-width:1024px){
-  .new-collections h1{
+  .new-collections h1 {
     font-size: 30px;
   }
-  .new-collections hr{
+
+  .new-collections hr {
     width: 120px;
     height: 3px;
   }
-  .collections{
-    gap: 15px;
+
+  .collections {
+    gap: 35px 20px;
     margin-top: 20px;
+    width: 90%;
+  }
+
+  .collections .item {
+    max-width: 220px;
+    padding: 8px;
   }
 }
+
 @media(max-width:800px){
-  .new-collections{
+  .new-collections {
     gap: 6px;
   }
-  .new-collections h1{
+
+  .new-collections h1 {
     font-size: 20px;
   }
-  .new-collections hr{
+
+  .new-collections hr {
     width: 100px;
   }
-  .collections{
-    gap: 15px;
+
+  .collections {
+    gap: 30px 15px;
+    grid-template-columns: repeat(4, 1fr);
+    width: 95%;
+  }
+
+  .collections .item {
+    max-width: 180px;
+    padding: 6px;
   }
 }
+
 @media(max-width:500px){
-   .collections{
-    display: grid;
+  .collections {
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 25px 15px;
+    width: 95%;
+  }
+
+  .collections .item {
+    width: 100%;
+    max-width: 160px;
+    padding: 8px;
+  }
+
+  .collections .item img {
+    margin-bottom: 6px;
   }
 }
