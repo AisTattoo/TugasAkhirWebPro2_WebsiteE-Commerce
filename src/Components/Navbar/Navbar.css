@@ -1,18 +1,20 @@
 .navbar {
   display: flex;
-  justify-content: space-around;
-  padding: 16px;
+  justify-content: space-between;
+  padding: 16px 30px;
   box-shadow: 0 1px 3px -2px black;
   align-items: center;
   position: relative;
   z-index: 1000;
-  background-color: #b9bdff; /* Background warna yang diminta */
+  gap: 30px;
+  min-height: 70px;
 }
 
 .nav-logo {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-shrink: 0;
 }
 
 .nav-logo p {
@@ -25,9 +27,11 @@
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 50px;
-  font-size: 20px;
+  gap: 30px;
+  font-size: 18px;
   font-weight: 500;
+  flex: 1;
+  justify-content: center;
 }
 
 .nav-menu li {
@@ -37,63 +41,195 @@
   justify-content: center;
   gap: 3px;
   cursor: pointer;
-  color: #626262;
-  padding: 8px 16px;
   border-radius: 20px;
   transition: all 0.3s ease;
+  position: relative;
 }
 
-/* Tambahkan efek hover */
-.nav-menu li:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-  color: #333;
+/* Link styling - ini yang penting untuk area klik */
+.nav-menu li a {
+  color: #45068b;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  text-align: center;
+  background-color: transparent;
+  font-weight: 500;
 }
 
-/* Item aktif, misalnya saat di halaman tersebut */
-.nav-menu li.active {
-  background-color: black;
+/* Hover effect pada link */
+.nav-menu li a:hover {
+  background-color: rgba(115, 97, 255, 0.234);
+  color: #45068b;
+  transform: translateY(-2px);
+}
+
+/* Active state - saat menu aktif */
+.nav-menu li.active a {
+  background-color: #45068b;
   color: white;
 }
-
-/* Garis kecil di bawah menu */
-.nav-menu hr {
-  border: none;
-  width: 80%;
-  height: 3px;
-  border-radius: 10px;
-  background: #a1a1a1;
+.nav-menu li.active a:hover{
+  background-color: #8c38ec;
 }
+
+/* Garis kecil di bawah menu - hapus karena tidak perlu */
+.nav-menu li hr {
+  display: none;
+}
+
+/* Garis untuk active state */
+.nav-menu li.active hr {
+  background: white;
+}
+
+/* ========== SEARCH STYLES - TOGGLE VERSION ========== */
+.nav-search {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Search icon button - yang diklik untuk toggle */
+.search-toggle {
+  color: #45068b;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  font-size: 18px;
+  background: rgba(69, 6, 139, 0.05);
+  border: 1px solid rgba(69, 6, 139, 0.1);
+}
+
+.search-toggle:hover {
+  background-color: rgba(69, 6, 139, 0.15);
+  transform: scale(1.05);
+  border-color: rgba(69, 6, 139, 0.2);
+}
+
+/* Search box - hidden by default */
+.search-box {
+  display: none;
+  align-items: center;
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 30px;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  width: 280px;
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+}
+
+/* Show search box when active */
+.search-box.active {
+  display: flex;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50%) translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+  }
+}
+
+.search-box:focus-within {
+  border-color: #45068b;
+  box-shadow: 0 4px 16px rgba(69, 6, 139, 0.2);
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 8px 12px;
+  font-size: 14px;
+  width: 100%;
+  color: #333;
+  font-weight: 400;
+}
+
+.search-box input::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+
+.search-close {
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.search-close:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+  color: #e74c3c;
+  transform: scale(1.1);
+}
+/* ========== END SEARCH STYLES ========== */
 
 .nav-login-cart {
   display: flex;
   align-items: center;
-  gap: 45px;
+  gap: 25px;
   position: relative;
   z-index: 10;
+  flex-shrink: 0;
+  padding-right: 10px;
 }
 
 .nav-login-cart button {
-  width: 150px;
-  height: 58px;
+  width: 120px;
+  height: 45px;
   outline: none;
   border: 1px solid #7a7a7a;
   border-radius: 75px;
-  color: #515151;
-  font-size: 20px;
+  color: #ffff;
+  font-size: 16px;
   font-weight: 500;
-  background: white;
+  background: #45068b;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
 }
 
 .nav-login-cart button:hover {
-  background: #f0f0f0;
+  background: #8c38ec;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Hindari klik warna oranye saat tombol ditekan */
 .nav-login-cart button:active {
   background: #dcdcdc;
   color: #000;
+  transform: translateY(0);
 }
 
 .nav-cart-count {
@@ -117,7 +253,8 @@
 /* Responsive Breakpoints */
 @media (max-width: 1280px) {
   .navbar {
-    padding: 12px 50px;
+    padding: 12px 15px;
+    gap: 15px;
   }
   .nav-logo img {
     width: 40px;
@@ -126,19 +263,29 @@
     font-size: 25px;
   }
   .nav-menu {
-    gap: 30px;
+    gap: 20px;
     font-size: 16px;
+  }
+  .nav-menu li a {
+    padding: 8px 16px;
+    min-width: 70px;
+  }
+  .search-box {
+    width: 240px;
+    padding: 6px 14px;
+    right: -10px;
+    margin-right: 15px;
   }
   .nav-login-cart {
-    gap: 30px;
+    gap: 15px;
   }
   .nav-login-cart button {
-    width: 120px;
-    height: 45px;
-    font-size: 16px;
+    width: 100px;
+    height: 40px;
+    font-size: 14px;
   }
   .nav-cart-count {
-    margin-left: -40px;
+    margin-left: -35px;
     font-size: 12px;
   }
 }
@@ -150,6 +297,15 @@
   .nav-menu {
     gap: 25px;
     font-size: 14px;
+  }
+  .nav-menu li a {
+    padding: 6px 12px;
+    min-width: 60px;
+  }
+  .search-box {
+    width: 200px;
+    right: -5px;
+    margin-right: 12px;
   }
   .nav-login-cart img {
     width: 30px;
@@ -167,43 +323,183 @@
 
 @media (max-width: 800px) {
   .navbar {
-    padding: 10px 0px;
+    padding: 16px 25px; /* Padding lebih besar */
+    flex-wrap: wrap;
+    row-gap: 15px;
+    min-height: 80px;
   }
+
+  .nav-logo {
+    flex: 1 1 auto; /* Jangan full width */
+    order: 1;
+  }
+
   .nav-dropdown {
     display: block;
-    width: 30px;
-    rotate: -90deg;
+    width: 28px;
+    transform: rotate(-90deg);
     transition: 0.5s;
+    cursor: pointer;
+    order: 4; /* Pindah ke ujung kanan */
+    margin-left: auto;
   }
+
+  .nav-dropdown.open {
+    transform: rotate(90deg);
+  }
+
+  /* MENU HORIZONTAL - PERBAIKAN! */
   .nav-menu {
     display: none;
-    height: 80px;
-    width: 100%;
+    flex-direction: row; /* HORIZONTAL */
+    align-items: center;
+    height: auto;
+    width: calc(100% + 50px); /* Lebih lebar dari container */
     position: absolute;
-    background-color: #b9bdff; /* Background dropdown sama dengan navbar */
-    justify-content: center;
-    top: 50px;
+    top: 100%;
+    left: -25px; /* Extend ke kiri */
+    right: -25px; /* Extend ke kanan */
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    order: 5;
+    padding: 20px 30px; /* Padding yang cukup */
+    gap: 25px; /* Gap yang lebih besar */
+    justify-content: center; /* Center menu items */
+    flex-wrap: nowrap; /* Jangan wrap, tetap horizontal */
+    z-index: 999;
+    border-radius: 0 0 15px 15px; /* Rounded bottom corners */
+    overflow-x: auto; /* Scroll horizontal jika perlu */
+    scrollbar-width: none; /* Hide scrollbar */
+    -ms-overflow-style: none; /* Hide scrollbar IE */
   }
+
+  /* Hide scrollbar webkit */
+  .nav-menu::-webkit-scrollbar {
+    display: none;
+  }
+
   .nav-menu-visible {
     display: flex;
   }
-  .nav-dropdown.open {
-    transform: rotate(90deg);
+
+  /* Menu items di mobile - styling yang lebih baik */
+  .nav-menu li {
+    flex-shrink: 0; /* Jangan shrink */
+  }
+
+  .nav-menu li a {
+    padding: 10px 20px;
+    font-size: 15px;
+    min-width: 80px;
+    white-space: nowrap;
+    border-radius: 25px;
+  }
+
+  .nav-login-cart {
+    display: flex;
+    order: 2;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .nav-search {
+    display: flex;
+    align-items: center;
+    order: 3;
+    gap: 10px;
+  }
+
+  .search-box {
+    width: 180px;
+    padding: 6px 12px;
+    right: 0px;
+    margin-right: 10px;
+  }
+
+  .nav-login-cart button {
+    width: 90px;
+    height: 38px;
+    font-size: 14px;
   }
 }
 
 @media (max-width: 500px) {
   .navbar {
-    padding: 8px 0px; /* Diperbaiki dari "width: 8px 0px" */
+    padding: 15px 20px; /* Padding lebih besar untuk mobile kecil */
+    flex-wrap: wrap;
+    row-gap: 12px;
+    min-height: 75px;
   }
+
   .nav-logo {
-    transform: scale(0.8);
+    flex: 1 1 auto;
+    transform: scale(0.9);
+    order: 1;
   }
+
+  .nav-dropdown {
+    order: 4;
+    margin-left: auto;
+  }
+
+  /* MENU HORIZONTAL di mobile kecil - PERBAIKAN */
   .nav-menu {
-    height: 70px;
-    top: 50px;
+    top: 100%;
+    left: -20px;
+    right: -20px;
+    width: calc(100% + 40px);
+    gap: 20px;
+    padding: 18px 25px;
+    font-size: 14px;
+    justify-content: flex-start; /* Start dari kiri tapi dengan padding cukup */
+    overflow-x: auto;
+    border-radius: 0 0 12px 12px;
   }
+
+  .nav-menu li a {
+    padding: 8px 16px;
+    font-size: 13px;
+    min-width: 70px;
+  }
+
+  /* SEARCH dan LOGIN - positioning yang lebih baik */
+  .nav-search {
+    order: 2;
+    display: flex;
+    width: auto;
+    margin-top: 0;
+    gap: 8px;
+  }
+
+  .search-box {
+    width: 160px;
+    padding: 5px 10px;
+    right: 5px;
+    margin-right: 8px;
+  }
+
+  .search-box input {
+    font-size: 12px;
+  }
+
   .nav-login-cart {
-    transform: scale(0.8);
+    order: 3;
+    display: flex;
+    gap: 10px;
+    transform: scale(0.95);
+  }
+
+  .nav-login-cart button {
+    width: 85px;
+    height: 36px;
+    font-size: 13px;
+  }
+
+  .nav-cart-count {
+    width: 16px;
+    height: 16px;
+    font-size: 11px;
+    margin-left: -32px;
+    margin-top: -28px;
   }
 }
