@@ -20,6 +20,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  padding: 90px;
 }
 
 .offers-left h1 {
